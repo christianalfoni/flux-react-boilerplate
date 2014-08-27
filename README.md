@@ -1,13 +1,13 @@
 ## React FLUX Boilerplate
 
 Based on the architecture suggestions from Facebook, this boilerplate will help you deal with it. It has included the
-react-flux-dispatcher and react-flux-store. Read more about FLUX over at [Facebook Flux](http://facebook.github.io/flux/) and I wrote a post about it too: [React JS and FLUX](http://christianalfoni.github.io/javascript/2014/08/20/react-js-and-flux.html).
+flux-react extension to React JS. Read more about FLUX over at [Facebook Flux](http://facebook.github.io/flux/) and I wrote a post about it too: [React JS and FLUX](http://christianalfoni.github.io/javascript/2014/08/20/react-js-and-flux.html).
 
 ### How to use
 
 * Clone the repo
 * Run `npm install`
-* Open `dev/index.html` or run `python -m SimpleHTTPServer` in the `dev` folder
+* Open `dev/index.html`, run `python -m SimpleHTTPServer` in the `dev` folder or set up your own server
 
 ### Development
 * Run `gulp`
