@@ -21,9 +21,8 @@ flux-react extension to React JS. Read more about FLUX over at [Facebook Flux](h
 ### Run all tests with Karma
 * Run `npm test`
 
-Karma will launch Chrome and run the tests once. If you need to run tests on a server with
-PhantomJS, either change `karma.conf.js` to use PhantomJS or manually start it with:
-`./node_modules/karma/bin/karma start --single-run --browsers PhantomJS`
+Karma will launch PhantomJS and run the tests once. If you need to run tests in a GUI browser, either change `karma.conf.js` to use Chrome or Firefox, or manually start it with:
+`./node_modules/karma/bin/karma start --single-run --browsers Chrome`
 
 ### Minify the code, ready for production
 * Run `gulp deploy`
