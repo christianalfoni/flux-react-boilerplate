@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
-var React = require('flux-react');
-var Constants = require('../Constants.js');
+var React = require('react');
+var flux = require('flux-react');
+var actions = require('./../actions.js');
 var ColoredCheckbox = require('./Checkboxes/ColoredCheckbox.js');
-var CheckboxActions = require('../actions/CheckboxActions.js');
 var CheckboxStore = require('../stores/CheckboxStore.js');
 
 var Checkboxes = React.createClass({
@@ -12,36 +12,44 @@ var Checkboxes = React.createClass({
 			checkboxes: CheckboxStore.getCheckboxes()
 		};
 	},
-	storesDidUpdate: function () {
+	componentWillMount: function () {
+		CheckboxStore.addChangeListener(this.update);
+	},
+	componentWillUnmount: function () {
+		CheckboxStore.removeChangeListener(this.update);
+	},
+	update: function () {
 		this.setState({
 			checkboxes: CheckboxStore.getCheckboxes()
 		});
 	},
 	check: function (color) {
-		React.dispatch({
-			type: CheckboxActions.CHECK,
-			color: color
-		})
+		actions.check(color);
 	},
 	checkAll: function () {
-		React.dispatch({
-			type: CheckboxActions.CHECK_ALL
-		});
+		actions.checkAll();
 	},
 	uncheckAll: function () {
-		React.dispatch({
-			type: CheckboxActions.UNCHECK_ALL
-		});
+		actions.uncheckAll();
+	},
+	renderCheckbox: function (checkbox, index) {
+		return <ColoredCheckbox 
+						key={index} 
+						color={checkbox.color} 
+						checked={checkbox.checked} 
+						onChange={this.check}/>
 	},
 	render: function() {
-		var checkboxes = this.state.checkboxes.map(function (checkbox, index) {
-			return <ColoredCheckbox key={index} color={checkbox.color} checked={checkbox.checked} onChange={this.check}/>
-		}, this);
+		var checkboxes = this.state.checkboxes.map(this.renderCheckbox);
 		return (
 			<div>
-				{checkboxes}
-				<button onClick={this.checkAll}>Check all</button>
-				<button onClick={this.uncheckAll}>Uncheck all</button>
+				<div>
+					{checkboxes}
+				</div>
+				<div>
+					<button onClick={this.checkAll}>Check all</button>
+					<button onClick={this.uncheckAll}>Uncheck all</button>
+				</div>
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var React = require('flux-react');
+var React = require('react');
 var Checkboxes = require('./components/Checkboxes.js');
 var NameThrower = require('./components/NameThrower.js');
 	
@@ -8,8 +8,12 @@ var App = React.createClass({
 		return (
 			<div>
 				<h1>Hello world!</h1>
-				<Checkboxes/>
-				<NameThrower/>
+				<div>
+					<Checkboxes/>
+				</div>
+				<div>
+					<NameThrower/>
+				</div>
 			</div>
 		);
 	}

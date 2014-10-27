@@ -1,7 +1,10 @@
 /** @jsx React.DOM */
-var React = require('flux-react');
+var React = require('react');
 	
 var ColoredCheckbox = React.createClass({
+	changeColor: function () {
+		this.props.onChange(this.props.color);
+	},
 	render: function() {
 		var style = {
 			backgroundColor: this.props.color,
@@ -10,7 +13,7 @@ var ColoredCheckbox = React.createClass({
 		return (
 			<span key={this.props.key} style={style}>
 				<input type="checkbox" 
-					onChange={this.props.onChange.bind(null, this.props.color)}
+					onChange={this.changeColor}
 					checked={this.props.checked}/>
 			</span>
 		);
