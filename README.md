@@ -9,6 +9,7 @@ Read more about FLUX over at [Facebook Flux](http://facebook.github.io/flux/) an
 * Clone the repo
 * Run `npm install`
 * Open `build/index.html`, run `python -m SimpleHTTPServer` in the `build` folder or set up your own server
+* **Important!** When adding new libs be sure to add them to "gulpfile.js" vendors. This will keep your rebundling speed very low and you will be happy :-)
 
 ### Development
 * Run `gulp`
