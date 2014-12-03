@@ -25,7 +25,7 @@
     "watchify": "^2.1.1"
   },
   "dependencies": {
-    "flux-react": "^2.4.1",
+    "flux-react": "^2.5.1",
     "react": "^0.12.0"
   }
 }
