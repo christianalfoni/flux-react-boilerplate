@@ -77,9 +77,7 @@ var browserifyTask = function (options) {
 			cache: {}, packageCache: {}, fullPaths: true // Requirement of watchify
 		});
 
-		dependencies.forEach(function (dep) {
-			testBundler.external(dep);
-		});
+    testBundler.external(dependencies);
 
   	var rebundleTests = function () {
   		var start = Date.now();
