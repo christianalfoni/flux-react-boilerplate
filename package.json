@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "flux-react": "^2.6.6",
-    "react": "^0.13.3"
+    "react": "^0.14.x"
   }
 }
